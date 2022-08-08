@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2022 at 11:25 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Aug 08, 2022 at 05:29 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,6 +44,29 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(3) NOT NULL,
+  `comment_post_id` int(3) NOT NULL,
+  `comment_author` varchar(255) NOT NULL,
+  `comment_email` varchar(255) NOT NULL,
+  `comment_content` text NOT NULL,
+  `comment_status` varchar(255) NOT NULL,
+  `comment_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) VALUES
+(1, 14, 'that_Lad', 'thatLad@mailer.ie', 'stuff and things being things and stuff', 'live', '2022-08-08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -69,7 +92,8 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`, `post_user`, `post_views_count`) VALUES
 (11, 19, '2nd Chance', 'Me', '2022-08-07', 'website landing page concept.PNG', 'PHP being dorks', 'dong help', 1, 'Draft Extra', '', 0),
 (12, 19, 'Posting a Post', 'Auxfuse', '2022-08-07', 'me.jpg', 'Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something ', 'dong help global', 1, 'Draft', '', 0),
-(13, 25, 'Savati....', 'Rhulk', '2022-08-07', 'wq_media_wallpaper_4.jpg', 'Savathun has Hive children', 'savathun rhulk', 1, 'HiveMommy', '', 0);
+(13, 25, 'Savati....', 'Rhulk', '2022-08-07', 'wq_media_wallpaper_4.jpg', 'Savathun has Hive children', 'savathun rhulk', 1, 'HiveMommy', '', 0),
+(14, 25, 'in work', 'me', '2022-08-08', 'still_render.png', 'New super test in work on personal laptop', 'other thing', 1, 'you', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -80,6 +104,12 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `posts`
@@ -98,10 +128,16 @@ ALTER TABLE `categories`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `post_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
