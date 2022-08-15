@@ -16,7 +16,6 @@
             $post_tags = mysqli_real_escape_string($connection, $_POST['post_tags']);
             $post_content = mysqli_real_escape_string($connection, $_POST['post_content']);
             $post_date = date('d-m-y');
-            $post_comment_count = 1;
 
             move_uploaded_file($post_image_temp, "../images/$post_image");
 
@@ -28,8 +27,7 @@
                 post_image,
                 post_tags,
                 post_content,
-                post_date,
-                post_comment_count
+                post_date
             )";
 
             $query .= "VALUES(
@@ -40,8 +38,7 @@
                 '{$post_image}',
                 '{$post_tags}',
                 '{$post_content}',
-                now(),
-                {$post_comment_count}
+                now()
             )";
 
             $create_post = mysqli_query($connection, $query);

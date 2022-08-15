@@ -17,7 +17,6 @@
             <th>Image</th>
             <th>Content</th>
             <th>Tags</th>
-            <th>Comment #</th>
             <th>Status</th>
             <th>User</th>
             <th>Views</th>
@@ -36,7 +35,6 @@
                 $post_image = $row['post_image'];
                 $post_content = $row['post_content'];
                 $post_tags = $row['post_tags'];
-                $post_comment_count = $row['post_comment_count'];
                 $post_status = $row['post_status'];
                 $post_user = $row['post_user'];
                 $post_views_count = $row['post_user'];
@@ -59,7 +57,6 @@
                 echo "<td><img width='100' src='../images/$post_image' alt='{$post_image}' /></td>";
                 echo "<td>{$post_content}</td>";
                 echo "<td>{$post_tags}</td>";
-                echo "<td>{$post_comment_count}</td>";
                 echo "<td>{$post_status}</td>";
                 echo "<td>{$post_user}</td>";
                 echo "<td>{$post_views_count}</td>";
