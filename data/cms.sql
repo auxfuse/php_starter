@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2022 at 05:29 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 16, 2022 at 01:00 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,7 +62,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) VALUES
-(1, 14, 'that_Lad', 'thatLad@mailer.ie', 'stuff and things being things and stuff', 'live', '2022-08-08');
+(5, 11, 'fuse', 'fuse@fusemail.ie', '2nd chance comment', 'Approved', '2022-08-15'),
+(6, 11, 'Fuse', 'fusemail@email.com', '2nd 2nd chance...2 comments', 'Declined', '2022-08-15'),
+(7, 15, 'Fuse', 'aux.fuse@yahoo.com', 'In a shocking turn of events...', 'Approved', '2022-08-15');
 
 -- --------------------------------------------------------
 
@@ -79,7 +81,6 @@ CREATE TABLE `posts` (
   `post_image` text NOT NULL,
   `post_content` text NOT NULL,
   `post_tags` varchar(255) NOT NULL,
-  `post_comment_count` int(255) NOT NULL,
   `post_status` varchar(255) NOT NULL DEFAULT 'draft',
   `post_user` varchar(255) NOT NULL,
   `post_views_count` int(11) NOT NULL
@@ -89,11 +90,12 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`, `post_user`, `post_views_count`) VALUES
-(11, 19, '2nd Chance', 'Me', '2022-08-07', 'website landing page concept.PNG', 'PHP being dorks', 'dong help', 1, 'Draft Extra', '', 0),
-(12, 19, 'Posting a Post', 'Auxfuse', '2022-08-07', 'me.jpg', 'Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something ', 'dong help global', 1, 'Draft', '', 0),
-(13, 25, 'Savati....', 'Rhulk', '2022-08-07', 'wq_media_wallpaper_4.jpg', 'Savathun has Hive children', 'savathun rhulk', 1, 'HiveMommy', '', 0),
-(14, 25, 'in work', 'me', '2022-08-08', 'still_render.png', 'New super test in work on personal laptop', 'other thing', 1, 'you', '', 0);
+INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_status`, `post_user`, `post_views_count`) VALUES
+(11, 19, '2nd Chance', 'Me', '2022-08-08', 'site.png', 'PHP being dorks', 'dong help', 'Draft Extra', '', 0),
+(12, 19, 'Posting a Post', 'Auxfuse', '2022-08-08', 'Cyberpunk 2077 (2).png', 'Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something about lorem is lorem about something Something ', 'dong help global', 'Draft', '', 0),
+(13, 19, 'Savati....', 'Rhulk', '2022-08-08', 'savathun.jpg', 'Savathun has Hive children', 'savathun rhulk', 'HiveMommy', '', 0),
+(14, 25, 'in work', 'me', '2022-08-08', 'still_render.png', 'New super test in work on personal laptop', 'other thing', 'you', '', 0),
+(15, 23, 'Apex is better than TF2', 'ShockingAuthor', '2022-08-15', 'tiltMenuConcept.PNG', 'Apex is better than TF2...people play this game.', 'apex', 'Live', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -109,7 +111,8 @@ ALTER TABLE `categories`
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`comment_id`);
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `comment_post_id` (`comment_post_id`);
 
 --
 -- Indexes for table `posts`
@@ -131,13 +134,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `post_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
