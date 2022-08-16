@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2022 at 01:00 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Aug 17, 2022 at 12:31 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -97,6 +97,33 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 (14, 25, 'in work', 'me', '2022-08-08', 'still_render.png', 'New super test in work on personal laptop', 'other thing', 'you', '', 0),
 (15, 23, 'Apex is better than TF2', 'ShockingAuthor', '2022-08-15', 'tiltMenuConcept.PNG', 'Apex is better than TF2...people play this game.', 'apex', 'Live', '', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(3) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `user_firstname` varchar(255) NOT NULL,
+  `user_lastname` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_image` text NOT NULL,
+  `user_role` varchar(255) NOT NULL,
+  `randSalt` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
+(1, 'fuse', 'pwd123', 'ant', 'ob', 'fuse@email.ie', '', 'admin', ''),
+(2, 'testerTest', 'shoes123', 'tester', 'test', 'test@testmail.com', '', '', ''),
+(3, 'other', 'other456', 'Oth', 'Er', 'OthEr@somewhere.ie', '', 'standard', '');
+
 --
 -- Indexes for dumped tables
 --
@@ -121,6 +148,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -141,6 +174,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `posts`
   MODIFY `post_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
