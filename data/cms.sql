@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2022 at 12:31 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 18, 2022 at 12:56 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -121,8 +121,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
 (1, 'fuse', 'pwd123', 'ant', 'ob', 'fuse@email.ie', '', 'admin', ''),
-(2, 'testerTest', 'shoes123', 'tester', 'test', 'test@testmail.com', '', '', ''),
-(3, 'other', 'other456', 'Oth', 'Er', 'OthEr@somewhere.ie', '', 'standard', '');
+(4, 'char', 'Waifu1234', 'Charlene', 'obrien', 'char@waifu.ie', '', 'Admin', '');
 
 --
 -- Indexes for dumped tables
@@ -179,7 +178,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

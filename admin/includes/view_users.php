@@ -1,8 +1,34 @@
 <?php
 
-    // del_post();
-
     // del_row('posts', 'post_id', 'posts');
+
+    // make user admin role
+    if(isset($_GET['admin'])) {
+        $the_user_id = $_GET['admin'];
+        $query = "UPDATE users SET user_role = 'Admin' WHERE user_id = {$the_user_id}";
+
+        $admin_query = mysqli_query($connection, $query);
+        header("Location: users.php");
+    }
+
+    // make user standard role
+    if(isset($_GET['standard'])) {
+        $the_user_id = $_GET['standard'];
+        $query = "UPDATE users SET user_role = 'Standard' WHERE user_id = {$the_user_id}";
+
+        $standard_query = mysqli_query($connection, $query);
+        header("Location: users.php");
+    }
+
+
+    // delete comment
+    if(isset($_GET['delete'])) {
+        $the_user_id = $_GET['delete'];
+        $query = "DELETE FROM users WHERE user_id = {$the_user_id}";
+
+        $delete_query = mysqli_query($connection, $query);
+        header("Location: users.php");
+    }
 
 ?>
 
@@ -15,7 +41,7 @@
             <th>Lastname</th>
             <th>Email</th>
             <th>Role</th>
-            <th colspan="3" class="center-txt">👇 👇Actions👇 👇</th>
+            <th colspan="4" class="center-txt">👇 👇Actions👇 👇</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +63,10 @@
                 echo "<td>{$user_lastname}</td>";
                 echo "<td>{$user_email}</td>";
                 echo "<td>{$user_role}</td>";
+                echo "<td class='center-txt'><a href='users.php?admin={$user_id}'>🧙‍♂️</a></td>";
+                echo "<td class='center-txt'><a href='users.php?standard={$user_id}'>🧔</a></td>";
+                echo "<td class='center-txt'><a href='users.php?source=edit_user&user_id={$user_id}'>📝</a></td>";
+                echo "<td class='center-txt'><a href='users.php?delete={$user_id}'>❌</a></td>";
                 echo "</tr>";
             }
         
