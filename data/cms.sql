@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2022 at 12:56 AM
+-- Generation Time: Aug 19, 2022 at 12:43 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -121,7 +121,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
 (1, 'fuse', 'pwd123', 'ant', 'ob', 'fuse@email.ie', '', 'admin', ''),
-(4, 'char', 'Waifu1234', 'Charlene', 'obrien', 'char@waifu.ie', '', 'Admin', '');
+(4, 'char', 'Waifu1234', 'Charlene', 'obrien', 'char@waifu.ie', '', 'Standard', '');
 
 --
 -- Indexes for dumped tables
