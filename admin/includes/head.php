@@ -1,3 +1,17 @@
+<?php
+
+    ob_start();
+
+?>
+
+<?php
+
+    if(!isset($_SESSION['role'])) {
+        header("Location: ../index.php");
+    }
+
+?>
+
 <head>
 
     <meta charset="utf-8">

@@ -11,6 +11,46 @@
 <!-- Blog Sidebar Widgets Column -->
 <div class="col-md-4">
 
+    <div class="well">
+        <h4>Login</h4>
+        <?php
+
+            if(isset($_SESSION['logout'])) {
+                echo "
+                    <div class='alert alert-success alert-dismissible' role='alert'>
+                        Logged Out
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close' name='close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                ";
+            }
+        
+            if(isset($_SESSION['login_error'])) {
+                echo "
+                    <div class='alert alert-danger alert-dismissible' role='alert'>
+                        {$_SESSION['login_error']}
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close' name='close'>
+                            <span aria-hidden='true'>&times;</span>
+                        </button>
+                    </div>
+                ";
+            }
+        
+        ?>
+        <form action="includes/login.php" method="post">
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="login" value="Login">
+            </div>
+        </form>
+    </div>
+
     <!-- Blog Search Well -->
     <div class="well">
         <h4>Blog Search</h4>
@@ -24,7 +64,6 @@
                 </span>
             </div>
         </form>
-        <!-- /.input-group -->
     </div>
 
     <!-- Blog Categories Well -->
